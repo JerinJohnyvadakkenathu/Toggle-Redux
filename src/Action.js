@@ -1,6 +1,6 @@
-export const actionRed=()=>({
-    type:"RED"
-})
-export const actionBlue=()=>({
-    type:"BLUE"
-})
+export const actionToggle = () => {
+    return {
+      type: "TOGGLE"
+    };
+  };
+  

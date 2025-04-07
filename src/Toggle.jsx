@@ -1,17 +1,33 @@
-import React from 'react'
-import {useSelector,useDispatch} from "react-redux";
-import { actionBlue, actionRed } from './Action';
-const Toggle=()=>{
-    const value=useSelector((state)=>state.toggle.current)
-    const dispatch=useDispatch();
-    console.log(value)
-    return(
-        <>
-        <h1>{value}</h1>
-        <button onClick={()=>dispatch(actionRed)} style={{backgroundColor:value?'red':'blue'}}>Red</button>
-        <button onClick={()=>dispatch(actionBlue)} style={{backgroundColor:value?'red':'blue'}}>Blue</button>
-        </>
-    )
-}
+import React from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { actionToggle } from './Action';
 
-export default Toggle
+const Toggle = () => {
+  const value = useSelector((state) => state.toggle.current);
+  const dispatch = useDispatch();
+
+  return (
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <h1 style={{ color: value ? 'blue' : 'red' }}>
+        {value ? 'Blue (true)' : 'Red (false)'}
+      </h1>
+
+      <button
+        onClick={() => dispatch(actionToggle())}
+        style={{
+          backgroundColor: value ? 'blue' : 'red',
+          color: 'white',
+          padding: '10px 20px',
+          border: 'none',
+          borderRadius: '5px',
+          fontSize: '16px',
+          cursor: 'pointer'
+        }}
+      >
+        Toggle Color
+      </button>
+    </div>
+  );
+};
+
+export default Toggle;
